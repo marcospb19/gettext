@@ -103,11 +103,11 @@ impl Ast {
         }
     }
 
-    pub fn parse<'a>(src: &'a str) -> Result<Ast, Error> {
+    pub fn parse(src: &str) -> Result<Ast, Error> {
         Self::parse_parens(src.trim())
     }
 
-    fn parse_parens<'a>(src: &'a str) -> Result<Ast, Error> {
+    fn parse_parens(src: &str) -> Result<Ast, Error> {
         if src.starts_with('(') {
             let end = src[1..src.len() - 1].chars().fold((1, 2), |(level, index), ch| {
                 if level > 0 {
