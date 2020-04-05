@@ -55,7 +55,7 @@ impl error::Error for Error {
 
 impl fmt::Display for Error {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
-        let self_err: &error::Error = self;
+        let self_err: &dyn error::Error = self;
         write!(fmt, "{}", self_err.description())
     }
 }
